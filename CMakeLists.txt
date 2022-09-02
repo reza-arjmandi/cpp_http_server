@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.1)
+set(CMAKE_TOOLCHAIN_FILE ${CMAKE_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake)
+project(http_file_server)
+find_package(Boost)
+add_executable(http_file_server main.cpp)
+target_link_libraries(http_file_server PRIVATE Boost::boost)
+target_include_directories(http_file_server PUBLIC ${CMAKE_SOURCE_DIR})
+target_compile_features(http_file_server PRIVATE cxx_std_17)
